@@ -3,6 +3,7 @@ package com.cutesnake.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cutesnake.game.SimpleDirectionGestureDetector;
 import com.cutesnake.game.SnakeGame;
@@ -17,9 +18,10 @@ import static com.badlogic.gdx.Input.Keys.*;
 public class PlayState extends State {
 
     private Snake snake;
-
+    private BitmapFont font;
     public PlayState(GameStateManager gsm) {
         super(gsm);
+        font = new BitmapFont(Gdx.files.internal("bubble.fnt"),false);
         snake = new Snake();
         cam.setToOrtho(false, SnakeGame.WIDTH,SnakeGame.HEIGHT);
         Gdx.input.setInputProcessor(new SimpleDirectionGestureDetector(new SimpleDirectionGestureDetector.DirectionListener() {
@@ -72,6 +74,8 @@ public class PlayState extends State {
     public void render(SpriteBatch sb) {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
+        font.setColor(1,1,1,1);
+        font.draw(sb,"score: "+snake.getScore(),SnakeGame.WIDTH/2-30,SnakeGame.HEIGHT);
         snake.render(sb);
         sb.end();
     }

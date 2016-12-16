@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.cutesnake.game.states.GameStateManager;
 import com.cutesnake.game.states.MenuState;
 import com.cutesnake.game.states.PlayState;
@@ -22,7 +23,7 @@ public class SnakeGame extends ApplicationAdapter {
 	private GameStateManager gsm;
 	private SpriteBatch batch;
 
-	BitmapFont font;
+
 	public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
 
 
@@ -33,6 +34,7 @@ public class SnakeGame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0.297f, 0.528f, 0.176f, 1);
 		texture = new Texture("snake-graphics.png");
 		gsm.push(new MenuState(gsm));
+
 	}
 
 	@Override

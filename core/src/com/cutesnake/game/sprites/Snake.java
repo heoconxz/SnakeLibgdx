@@ -72,7 +72,7 @@ public class Snake {
         time+=dt;
         //System.out.println(time);
 
-        if (time > 0.2) {
+        if (time > 0.15) {
             velocity.set(tempVelocity);
             if (body.get(body.size - 1).x+velocity.x == applePosition.x &&
                     body.get(body.size - 1).y+velocity.y == applePosition.y )
@@ -174,6 +174,7 @@ public class Snake {
     public Vector3 getVelocity() {
         return velocity;
     }
+    public String getScore(){return ( Integer.toString(body.size-3));}
     public void dispose()
     {
     }
